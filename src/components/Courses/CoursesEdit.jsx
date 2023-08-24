@@ -224,12 +224,13 @@ const CoursesEdit = (props) => {
                                     validate={[required()]}
                                     style={defaultStyle}
                                 />
-
-                                <TextInput
+								
+								<RichTextInput
                                     source="programm.description"
-                                    label="Описание Блока `Программа курса`"
+                                    label="Описание"
                                     validate={[required()]}
                                     style={defaultStyle}
+                                    multiline
                                 />
 
                                 <ArrayInput
@@ -250,12 +251,13 @@ const CoursesEdit = (props) => {
                                             style={defaultStyle}
                                             validate={[required()]}
                                         />
-                                        <TextInput
-                                            label="Описание"
-                                            source="description"
-                                            style={defaultStyle}
-                                            validate={[required()]}
-                                        />
+										<RichTextInput
+											source="description"
+											label="Описание"
+											validate={[required()]}
+											style={defaultStyle}
+											multiline
+										/>
                                     </SimpleFormIterator>
                                 </ArrayInput>
                             </>

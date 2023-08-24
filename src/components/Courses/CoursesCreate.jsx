@@ -61,6 +61,7 @@ const CoursesCreate = (props) => {
                                         source="description"
                                         label="Описание"
                                         validate={[required()]}
+                                        style={defaultStyle}
                                         multiline
                                     />
                                 </div>
@@ -109,8 +110,7 @@ const CoursesCreate = (props) => {
                                     accept="image/*"
                                     placeholder={<p>Перетащите файл сюда</p>}
                                     validate={[required()]}
-                                    style={defaultStyle}
-                                >
+                                    style={defaultStyle}>
                                     <ImageField source="src" />
                                 </ImageInput>
 
@@ -196,8 +196,7 @@ const CoursesCreate = (props) => {
                                                 <p>Перетащите файл сюда</p>
                                             }
                                             validate={[required()]}
-                                            style={defaultStyle}
-                                        >
+                                            style={defaultStyle}>
                                             <ImageField source="src" />
                                         </ImageInput>
 
@@ -219,49 +218,51 @@ const CoursesCreate = (props) => {
                                             style={defaultStyle}
                                             multiline
                                         />
-
-										<TextInput
-											source="programm.title"
-											label="Заголовок Блока `Программа курса`"
-											validate={[required()]}
-											style={defaultStyle}
-										/>
-		
-										<TextInput
-											source="programm.description"
-											label="Описание Блока `Программа курса`"
-											validate={[required()]}
-											style={defaultStyle}
-										/>
-		
-										<ArrayInput
-											source="programm.items"
-											label="Элементы Блока `Программа курса`"
-											style={defaultStyle}
-											validate={[required()]}>
-											<SimpleFormIterator>
-												<TextInput
-													label="Подзаголовок"
-													source="subtitle"
-													style={defaultStyle}
-													validate={[required()]}
-												/>
-												<TextInput
-													label="Заголовок"
-													source="title"
-													style={defaultStyle}
-													validate={[required()]}
-												/>
-												<TextInput
-													label="Описание"
-													source="description"
-													style={defaultStyle}
-													validate={[required()]}
-												/>
-											</SimpleFormIterator>
-										</ArrayInput>
                                     </>
                                 ) : null}
+
+                                <TextInput
+                                    source="programm.title"
+                                    label="Заголовок Блока `Программа курса`"
+                                    validate={[required()]}
+                                    style={defaultStyle}
+                                />
+
+                                <RichTextInput
+                                    source="description"
+                                    label="Описание"
+                                    validate={[required()]}
+                                    style={defaultStyle}
+                                    multiline
+                                />
+
+                                <ArrayInput
+                                    source="programm.items"
+                                    label="Элементы Блока `Программа курса`"
+                                    style={defaultStyle}
+                                    validate={[required()]}>
+                                    <SimpleFormIterator>
+                                        <TextInput
+                                            label="Подзаголовок"
+                                            source="subtitle"
+                                            style={defaultStyle}
+                                            validate={[required()]}
+                                        />
+                                        <TextInput
+                                            label="Заголовок"
+                                            source="title"
+                                            style={defaultStyle}
+                                            validate={[required()]}
+                                        />
+                                        <RichTextInput
+                                            source="description"
+                                            label="Описание"
+                                            validate={[required()]}
+                                            style={defaultStyle}
+                                            multiline
+                                        />
+                                    </SimpleFormIterator>
+                                </ArrayInput>
                             </>
                         )}
                     </FormDataConsumer>
